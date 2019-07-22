@@ -1,5 +1,6 @@
 
 const yargs = require('yargs')
+const notes = require('./notes')
 
 const command = process.argv
 
@@ -27,10 +28,11 @@ yargs.command({
     handler: function(argv) {
         console.log('Title : '+ argv.title)
         console.log('Body : '+ argv.body)
+        notes.addNote(argv.title, argv.body)
     }
 })
 
-// create remove command
+// remove command
 yargs.command({
     command:'remove',
     describe: 'remove a new note',
@@ -39,7 +41,7 @@ yargs.command({
     }
 })
 
-// create read command
+//  read command
 yargs.command({
     command:'read',
     describe: 'read a new note',
@@ -48,7 +50,7 @@ yargs.command({
     }
 })
 
-// create list command
+//  list command
 yargs.command({
     command:'list',
     describe: 'list a new note',
