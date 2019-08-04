@@ -10,6 +10,7 @@ app.use(express.json())
 //============ User ==================
 
 app.post("/users", (req, res) => {
+    console.log(req.body)
     const user = User(req.body)
     user.save().then(() => {
         res.status(201).send(user)
